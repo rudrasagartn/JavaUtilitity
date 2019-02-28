@@ -1,4 +1,4 @@
-package com.java.utilitity;
+package com.bees.java.utilitity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.bees.java.utilitity.ListPartition;
 
 /**
  * @author rudrasagar.tn
@@ -54,6 +56,31 @@ public class TestListPartition {
 		}
 		assertNotEquals(lst.size(), 5);
 
+	}
+
+	@Test
+	public void test2StringListSizeEquals() {
+		Collection<List<String>> lst2 = (Collection<List<String>>) ListPartition.split(stringList, new Integer(5));
+		assertEquals(lst2.size(), 4);
+
+	}
+
+	@Test
+	public void test2IntegerListSizeEquals() {
+
+		Collection<List<Integer>> lst2 = (Collection<List<Integer>>) ListPartition.split(integerList, new Integer(5));
+		assertEquals(lst2.size(), 4);
+
+	}
+
+	@Test
+	public void test2ListSizeNotEquals() {
+		List<Integer> lst = null;
+		Collection<List<Integer>> lst2 = (Collection<List<Integer>>) ListPartition.split(integerList, new Integer(5));
+		for (List<Integer> list : lst2) {
+			lst = list;
+		}
+		assertNotEquals(lst.size(), 5);
 	}
 
 }
